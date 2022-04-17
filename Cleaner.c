@@ -8,13 +8,13 @@ int DoD(long Size, char Directory[MAX_PATH])
 {
     if (Size <= 0)
     {
-        printf("Îøèáêà àðãóìåíòà\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð°\n");
         system("pause");
         return 1;
     }
     if (Directory == NULL)
     {
-        printf("Îøèáêà àðãóìåíòà\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð°\n");
         system("pause");
         return 2;
     }
@@ -26,9 +26,9 @@ int DoD(long Size, char Directory[MAX_PATH])
     BYTE* Inverse;
     int i;
     long Prohod = 0;
-    if (printf("Óäàëèòü âûáðàííûé ôàéë? Y/N\n") < 0)
+    if (printf("Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»? Y/N\n") < 0)
     {
-        printf("Îøèáêà printf â DoD.\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² DoD.\n");
         system("pause");
         return 3;
     }
@@ -37,16 +37,16 @@ int DoD(long Size, char Directory[MAX_PATH])
     while (Er != 1 || (Ch != 'Y' && Ch != 'N'))
     {
         getchar();
-        if (printf("Ââåäèòå êîððåêòíûé âûáîð Y/N:\n") < 0)
+        if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€ Y/N:\n") < 0)
         {
-            printf("Îøèáêà â printf â DoD\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² DoD\n");
             system("pause");
             return 4;
         }
         Er = scanf("%c", &Ch);
         if (Er != 1)
         {
-            printf("Îøèáêà â scanf â DoD!\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² scanf Ð² DoD!\n");
             system("pause");
             return 5;
         }
@@ -57,14 +57,14 @@ int DoD(long Size, char Directory[MAX_PATH])
         pbBuffer = (BYTE*)malloc(Size * sizeof(BYTE));
         if (pbBuffer == NULL)
         {
-            printf("Îøèáêà âûäåëåíèÿ äèíàìè÷åñêîé ïàìÿòè â DoD\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ñ Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð² DoD\n");
             system("pause");
             return 6;
         }
         Inverse = (BYTE*)malloc(Size * sizeof(BYTE));
         if (Inverse == NULL)
         {
-            printf("Îøèáêà âûäåëåíèÿ äèíàìè÷åñêîé ïàìÿòè â DoD\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ñ Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð² DoD\n");
             system("pause");
             free(pbBuffer);
             return 7;
@@ -76,7 +76,7 @@ int DoD(long Size, char Directory[MAX_PATH])
                 Er = CryptAcquireContextA(&hProv, NULL, NULL, PROV_RSA_FULL, CRYPT_VERIFYCONTEXT);
                 if ((Er == FALSE))
                 {
-                    printf("Îøèáêà â CryptAcquireContextA â DoD");
+                    printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² CryptAcquireContextA Ð² DoD");
                     system("pause");
                     free(Inverse);
                     free(pbBuffer);
@@ -85,7 +85,7 @@ int DoD(long Size, char Directory[MAX_PATH])
                 Er = CryptGenRandom(hProv, Size, pbBuffer);
                 if (Er == FALSE)
                 {
-                    printf("Îøèáêà CryptGenRandom â DoD.\n");
+                    printf("ÐžÑˆÐ¸Ð±ÐºÐ° CryptGenRandom Ð² DoD.\n");
                     system("pause");
                     free(Inverse);
                     free(pbBuffer);
@@ -95,7 +95,7 @@ int DoD(long Size, char Directory[MAX_PATH])
                 Er = CryptReleaseContext(hProv, 0);
                 if (Er == FALSE)
                 {
-                    printf("Îøèáêà CryptReleaseContext â DoD.\n");
+                    printf("ÐžÑˆÐ¸Ð±ÐºÐ° CryptReleaseContext Ð² DoD.\n");
                     system("pause");
                     free(Inverse);
                     free(pbBuffer);
@@ -105,7 +105,7 @@ int DoD(long Size, char Directory[MAX_PATH])
             File = fopen(Directory, "rb+");
             if (File == NULL)
             {
-                printf("Îøèáêà fopen() â DoD\n");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° fopen() Ð² DoD\n");
                 system("pause");
                 free(Inverse);
                 free(pbBuffer);
@@ -114,7 +114,7 @@ int DoD(long Size, char Directory[MAX_PATH])
 
             if (fseek(File, 0, SEEK_SET) == -1)
             {
-                printf("Îøèáêà fseek â DoD\n");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° fseek Ð² DoD\n");
                 system("pause");
                 free(Inverse);
                 free(pbBuffer);
@@ -128,7 +128,7 @@ int DoD(long Size, char Directory[MAX_PATH])
                     if (fwrite((void*)&pbBuffer[Prohod], sizeof(BYTE), 1, File) != 1)
 
                     {
-                        printf("Îøèáêà fwrite â ôóíêöèè DoD!\n");
+                        printf("ÐžÑˆÐ¸Ð±ÐºÐ° fwrite Ð² Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ DoD!\n");
                         system("pause");
                         free(Inverse);
                         free(pbBuffer);
@@ -140,7 +140,7 @@ int DoD(long Size, char Directory[MAX_PATH])
                 {
                     if (fwrite((void*)&Inverse[Prohod], sizeof(BYTE), 1, File)!= 1)
                     {
-                        printf("Îøèáêà fwrite ôóíêöèè DoD!\n");
+                        printf("ÐžÑˆÐ¸Ð±ÐºÐ° fwrite Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ DoD!\n");
                         system("pause");
                         free(Inverse);
                         free(pbBuffer);
@@ -152,7 +152,7 @@ int DoD(long Size, char Directory[MAX_PATH])
 
                     if (fwrite((void*)&Inverse[Prohod], sizeof(BYTE), 1, File) != 1)
                     {
-                        printf("Îùèáêà fwrite â ôóíêöèè DoD!\n");
+                        printf("ÐžÑ‰Ð¸Ð±ÐºÐ° fwrite Ð² Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ DoD!\n");
                         system("pause");
                         free(Inverse);
                         free(pbBuffer);
@@ -164,7 +164,7 @@ int DoD(long Size, char Directory[MAX_PATH])
             Er = fclose(File);
             if (Er != 0)
             {
-                printf("Îøèáêà çàêðûòèÿ ôàéëà â DoD!");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð² DoD!");
                 system("pause");
                 free(Inverse);
                 free(pbBuffer);
@@ -175,30 +175,30 @@ int DoD(long Size, char Directory[MAX_PATH])
         free(Inverse);
         if (remove(Directory) != 0)
         {
-            printf("Óäàëåíèå ôàéëà â DoD çàâåðøåíî ñ îøèáêîé!\n");
+            printf("Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð° Ð² DoD Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¾ Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ¾Ð¹!\n");
             system("pause");
             return 17;
         }
         else
         {
-            if (printf("Ôàéë óñïåøíî óäàëåí!\n") < 0)
+            if (printf("Ð¤Ð°Ð¹Ð» ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½!\n") < 0)
             {
-                printf("Îøèáêà printf â DoD.\n");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² DoD.\n");
                 system("pause");
                 return 18;
             }
         }
         break;
     case 'N':
-        if (printf("Ôàéë íå áûë óäàë¸í!\n") < 0)
+        if (printf("Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð±Ñ‹Ð» ÑƒÐ´Ð°Ð»Ñ‘Ð½!\n") < 0)
         {
-            printf("Îøèáêà printf â DoD.\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² DoD.\n");
             system("pause");
             return 19;
         }
         return 0;
     default:
-        printf("Íåêîððåêòíàÿ îáðàáîòêà âûáîðà\n");
+        printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð°Ñ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð²Ñ‹Ð±Ð¾Ñ€Ð°\n");
         system("pause");
         return 20;
     }
@@ -207,39 +207,39 @@ int DoD(long Size, char Directory[MAX_PATH])
 int UserAlgoritm(long Size, char Link[MAX_PATH]) {
     if (Size <= 0)
     {
-        printf("Îøèáêà àðãóìåíòà\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð°\n");
         system("pause");
         return 1;
     }
     if (Link == NULL)
     {
-        printf("Îøèáêà àðãóìåíòà\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð°\n");
         system("pause");
         return 2;
     }
     int Plug, * Array, CycleCount = 0, MaxCycles;
     FILE* File;
     char Choice;
-    if (printf("Ââåäèòå ÷èñëî öèêëîâ, ïîæàëóéñòà\n") < 0) {
-        printf("Îøèáêà â printf â UserAlgoritm\n");
+    if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ñ†Ð¸ÐºÐ»Ð¾Ð², Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°\n") < 0) {
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² UserAlgoritm\n");
         system("pause");
         return 3;
     }
     Plug = scanf("%d", &MaxCycles);
     if (Plug != 1) {
-        printf("Îøèáêà scanf â UserAlgoritm\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° scanf Ð² UserAlgoritm\n");
         system("pause");
         return 4;
     }
     while (MaxCycles < 1) {
-        if (printf("Ââåäèòå êîððåêòíîå ÷èñëî öèêëîâ\n") < 0) {
-            printf("Îøèáêà printf â UserAlgoritm\n");
+        if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ñ†Ð¸ÐºÐ»Ð¾Ð²\n") < 0) {
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² UserAlgoritm\n");
             system("pause");
             return 5;
         }
         Plug = scanf("%d", &MaxCycles);
         if (Plug != 1) {
-            printf("Îøèáêà scanf â UserAlgoritm\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° scanf Ð² UserAlgoritm\n");
             system("pause");
             return 6;
         }
@@ -247,34 +247,34 @@ int UserAlgoritm(long Size, char Link[MAX_PATH]) {
     Array = (int*)malloc(MaxCycles * sizeof(int));
     if (Array == NULL)
     {
-        printf("Îøèáêà âûäåëåíèÿ äèíàìè÷åñêîé ïàìÿòè â UserAlgoritm\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð´ÐµÐ»ÐµÐ½Ð¸Ñ Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¾Ð¹ Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð² UserAlgoritm\n");
         system("pause");
         return 7;
     }
     while (CycleCount < MaxCycles) {
-        if (printf("Ââåäèòå çíà÷åíèå áàéòà â %d öèêëå\n", CycleCount + 1) < 0) {
-            printf("Îøèáêà â printf â UserAlgoritm\n");
+        if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð±Ð°Ð¹Ñ‚Ð° Ð² %d Ñ†Ð¸ÐºÐ»Ðµ\n", CycleCount + 1) < 0) {
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² UserAlgoritm\n");
             system("pause");
             free(Array);
             return 8;
         }
         Plug = scanf("%x", &Array[CycleCount]);
         if (Plug != 1) {
-            printf("Îøèáêà â scanf â UserAlgoritm\n");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² scanf Ð² UserAlgoritm\n");
             system("pause");
             free(Array);
             return 9;
         }
         while (Plug == 0 || Array[CycleCount] < 0) {
-            if (printf("Ââåäèòå êîððåêòíûé áàéò\n") < 0) {
-                printf("Îøèáêà printf â UserAlgoritm\n");
+            if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð±Ð°Ð¹Ñ‚\n") < 0) {
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² UserAlgoritm\n");
                 system("pause");
                 free(Array);
                 return 10;
             }
             Plug = scanf("%x", &Array[CycleCount]);
             if (Plug != 1) {
-                printf("Îøèáêà â scanf â UserAlgoritm\n");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² scanf Ð² UserAlgoritm\n");
                 system("pause");
                 free(Array);
                 return 11;
@@ -282,8 +282,8 @@ int UserAlgoritm(long Size, char Link[MAX_PATH]) {
         }
         CycleCount++;
     }
-    if (printf("Âû æåëàåòå óäàëèòü âûáðàííûé ôàéë? y/n\n") < 0) {
-        printf("Îøèáêà printf â UserAlgoritm\n");
+    if (printf("Ð’Ñ‹ Ð¶ÐµÐ»Ð°ÐµÑ‚Ðµ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»? y/n\n") < 0) {
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° printf Ð² UserAlgoritm\n");
         system("pause");
         free(Array);
         return 12;
@@ -292,40 +292,40 @@ int UserAlgoritm(long Size, char Link[MAX_PATH]) {
     Plug = scanf("%c", &Choice);
     while (Plug != 1 || (Choice != 'y' && Choice != 'n')) {
         getchar();
-        if (printf("Ââåäèòå êîððåêòíûé âûáîð y/n:\n") < 0) {
-            printf("Îøèáêà â printf â UserAlgoritm");
+        if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€ y/n:\n") < 0) {
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² UserAlgoritm");
             system("pause");
             free(Array);
             return 13;
         }
         Plug = scanf("%c", &Choice);
         if (Plug != 1) {
-            printf("Îøèáêà â scanf â UserAlgoritm");
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² scanf Ð² UserAlgoritm");
             system("pause");
             free(Array);
             return 14;
         }
     }
     switch (Choice) {
-    case 'y': printf("Âû ðåøèëè óäàëèòü!\n");
+    case 'y': printf("Ð’Ñ‹ Ñ€ÐµÑˆÐ¸Ð»Ð¸ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ!\n");
         for (int i = 0; i < MaxCycles; i++) {
             File = fopen(Link, "rb+");
             if (File == NULL) {
-                printf("Îøèáêà fopen() â UserAlgoritm\n");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° fopen() Ð² UserAlgoritm\n");
                 system("pause");
                 free(Array);
                 return 15;
             }
             long Tictac = 0;
             if (fseek(File, 0, SEEK_SET) == -1) {
-                printf("Îøèáêà fseek â UserAlgoritm");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° fseek Ð² UserAlgoritm");
                 system("pause");
                 free(Array);
                 return 16;
             }
             while (Tictac < Size) {
                 if (fwrite((void*)&Array[i], sizeof(BYTE), 1, File) != 1) {
-                    printf("Îøèáêà fwrite â UserAlgoritm");
+                    printf("ÐžÑˆÐ¸Ð±ÐºÐ° fwrite Ð² UserAlgoritm");
                     system("pause");
                     free(Array);
                     return 17;
@@ -334,14 +334,14 @@ int UserAlgoritm(long Size, char Link[MAX_PATH]) {
             }
             Plug = fclose(File);
             if (Plug != 0) {
-                printf("Îøèáêà çàêðûòèÿ ôàéëà â UserAlgoritm");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ñ„Ð°Ð¹Ð»Ð° Ð² UserAlgoritm");
                 system("pause");
                 free(Array);
                 return 18;
             }
         }
         if (remove(Link) != 0) {
-                printf("Îøèáêà â remove â UserAlgoritm");
+                printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² remove Ð² UserAlgoritm");
                 system("pause");
                 free(Array);
                 return 19;
@@ -351,8 +351,8 @@ int UserAlgoritm(long Size, char Link[MAX_PATH]) {
     case 'n':
         return 0;
     default:
-        if (printf("Íåêîððåêòíàÿ îáðàáîòêà âûáîðà\n") < 0) {
-            printf("Îøèáêà â printf â UserAlgoritm");
+        if (printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð°Ñ Ð¾Ð±Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ° Ð²Ñ‹Ð±Ð¾Ñ€Ð°\n") < 0) {
+            printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² UserAlgoritm");
             system("pause");
             return 20;
         }
@@ -364,74 +364,74 @@ int main()
 {
     int Error = 0;
     if (setlocale(LC_ALL, "Rus") == NULL) {
-        printf("Îøèáêà â setlocale()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² setlocale()\n");
         system("pause");
         return 1;
     }
     char Link[MAX_PATH];
     long Size = 0;
     int c;
-    if (printf("Ââåäèòå ññûëêó íà ôàéë, ïîæàëóéñòà!\n") < 0) {
-        printf("Îøèáêà â printf â main.\n");
+    if (printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑÑ‹Ð»ÐºÑƒ Ð½Ð° Ñ„Ð°Ð¹Ð», Ð¿Ð¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°!\n") < 0) {
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf Ð² main.\n");
         system("pause");
         return 2;
     }
     if (scanf("%[^\n]s", Link) != 1) {
-        printf("Îøèáêà â scanf()");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² scanf()");
         system("pause");
         return 3;
     }
     FILE* File = fopen(Link, "r+");
     if (File == NULL) {
-        printf("Îøèáêà â fopen()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² fopen()\n");
         system("pause");
         return 4;
     }
     if (fseek(File, 0, SEEK_END) == -1) {
-        printf("Îøèáêà â fseek()");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² fseek()");
         system("pause");
         fclose(File);
         return 5;
     }
     Size = ftell(File);
     if (Size == -1) {
-        printf("Îøèáêà â ftell()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² ftell()\n");
         system("pause");
         fclose(File);
         return 6;
     }
     Error = fclose(File);
     if (Error != 0) {
-        printf("Îøèáêà â fclose()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² fclose()\n");
         system("pause");
         return 7;
     }
-    if (printf("Âûáåðèòå îäèí èç ïåðå÷èñëåííûõ àëãîðèòìîâ óíè÷òîæåíèÿ èíôîðìàöèè:\n") < 0) {
-        printf("Îøèáêà â printf()\n");
+    if (printf("Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½ Ð¸Ð· Ð¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÐµÐ½Ð½Ñ‹Ñ… Ð°Ð»Ð³Ð¾Ñ€Ð¸Ñ‚Ð¼Ð¾Ð² ÑƒÐ½Ð¸Ñ‡Ñ‚Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸:\n") < 0) {
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf()\n");
         system("pause");
         return 8;
     }
-    if (printf("a.Ïîëüçîâàòåëüñêèé\nb.DoD\nÂâåäèòå íîìåð âûáðàííîãî ìåòîäà:\n") < 0) {
-        printf("Îøèáêà â printf()\n");
+    if (printf("a.ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹\nb.DoD\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð¼ÐµÑ‚Ð¾Ð´Ð°:\n") < 0) {
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf()\n");
         system("pause");
         return 9;
     }
     getchar();
     c = getchar();
     if (c == EOF) {
-        printf("Îøèáêà â getchar()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² getchar()\n");
         system("pause");
         return 10;
     }
     switch (c) {
-    case 'a': if (printf("Âû âûáðàëè ïîëüçîâàòåëüñêèé àëãîðèòì óäàëåíèÿ èíôîðìàöèè\n") < 0)
+    case 'a': if (printf("Ð’Ñ‹ Ð²Ñ‹Ð±Ñ€Ð°Ð»Ð¸ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ð°Ð»Ð³Ð¾Ñ€Ð¸Ñ‚Ð¼ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸\n") < 0)
     {
-        printf("Îøèáêà â printf()\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð² printf()\n");
         system("pause");
         return 11;
     }
             if (UserAlgoritm(Size, Link) != 0) {
-                printf("Íåêîððåêòíîå âûïîëíåíèå UserAlgoritm()");
+                printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ UserAlgoritm()");
                 system("pause");
                 return 12;
             }
@@ -439,15 +439,16 @@ int main()
     case 'b':
         if (DoD(Size, Link) != 0)
         {
-            printf("Íåêîððåêòíîå âûïîëíåíèå DoD");
+            printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ DoD");
             system("pause");
             return 13;
         }
         break;
     default:
-        printf("Îøèáêà âûáîðà ñöåíàðèÿ\n");
+        printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð±Ð¾Ñ€Ð° ÑÑ†ÐµÐ½Ð°Ñ€Ð¸Ñ\n");
         system("pause");
         return 14;
     }
     return 0;
 }
+
